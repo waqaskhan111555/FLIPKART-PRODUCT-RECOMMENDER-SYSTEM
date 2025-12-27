@@ -12,7 +12,7 @@ def create_app():
 
     app = Flask(__name__)
 
-    vector_store = DataIngestor().ingest(load_existing=True)
+    vector_store = DataIngestor().ingest(load_existing=False)
     rag_chain = RAGChainBuilder(vector_store).build_chain()
 
     @app.route("/")

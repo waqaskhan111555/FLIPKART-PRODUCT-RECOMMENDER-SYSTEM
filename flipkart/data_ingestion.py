@@ -18,8 +18,9 @@ class DataIngestor:
     def ingest(self,load_existing=True):
         if load_existing==True:
             return self.vstore
-        
+        print("Ingesting Data into Vector Store...")
         docs = DataConverter("data/flipkart_product_review.csv").convert()
+        print(f"Total Documents to be ingested: {len(docs)}")
 
         self.vstore.add_documents(docs)
 
